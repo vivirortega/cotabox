@@ -2,6 +2,8 @@ import { Form, Data } from './style'
 import { Chart } from 'react-google-charts'
 import axios from 'axios'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const data = [
   ['Task', 'Hours per Day'],
@@ -19,6 +21,7 @@ export const options = {
 }
 
 function App() {
+  const notify = () => toast.success("Cadastrado com Sucesso!");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [participation, setParticipation] = useState(0);
@@ -33,6 +36,7 @@ function App() {
       setFirstName("");
       setLastName("");
       setParticipation("");
+      notify()
     });
     promise.catch((error) => {
       console.log(error)
@@ -46,7 +50,8 @@ function App() {
         <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First Name" required />
         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" required />
         <input type="text" value={participation} onChange={(e) => setParticipation(e.target.value)} placeholder="Participation" required />
-        <button type="submit">SEND</button>
+        <button className='btn' type="submit">SEND</button>
+        <ToastContainer />
       </Form>
       <Data>
         <h1>DATA</h1>

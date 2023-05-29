@@ -19,7 +19,7 @@ const Form = styled.form`
     border-radius: 2px;
   }
 
-  button {
+  btn {
     width: 10em;
     height: 3.1em;
     border: 2px solid #ffffff;
@@ -29,6 +29,11 @@ const Form = styled.form`
     font-weight: bold;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-size: 1em;
+  }
+
+  btn:hover {
+    background-color: #ffffff;
+    color: #00b8e2;
   }
 `
 
