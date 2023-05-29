@@ -7,7 +7,12 @@ export async function createUser(firstName,lastName,participation) {
        participation: participation
     })
   }
+
+export async function getUsers(){
+  return await db.collection("users").find({}).toArray()
+
+}
   
-const userRepository = { createUser}
+const userRepository = { createUser, getUsers }
 
 export default userRepository;

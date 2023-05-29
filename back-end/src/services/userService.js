@@ -4,6 +4,11 @@ export async function createUser(firstName, lastName, participation){
   await userRepository.createUser(firstName,lastName,participation)
 }
 
-const userService = { createUser}
+export async function getUsers(){
+  return await userRepository.getUsers()
+}
+
+
+const userService = { createUser, getUsers}
 
 export default userService;

@@ -1,10 +1,10 @@
-import { userSchema } from "../schemas/userSchema.js";
+import { userSchema } from '../schemas/userSchema.js'
 
-export async function schemaValidator(req, res,next) {
-    const validation = userSchema.validate(req.body);
-    if (validation.error) {
-      res.sendStatus(422);
-      return;
-    }
-    next();
+export async function schemaValidator(req, res, next) {
+  const validation = userSchema.validate(req.body)
+  if (validation.error) {
+    res.sendStatus(422)
+    return
   }
+  next()
+}
