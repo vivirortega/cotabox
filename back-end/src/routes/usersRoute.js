@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { postUser } from '../controllers/userController.js'
-import { userSchema } from '../schemas/userSchema.js'
+import { schemaValidator } from '../middlewares/schemaValidator.js'
 
 const userRouter = Router()
 
-userRouter.post('/', postUser)
+userRouter.post('/', schemaValidator, postUser)
 
 export default userRouter
