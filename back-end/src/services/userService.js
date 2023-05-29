@@ -8,7 +8,6 @@ export async function getUsers(){
   return await userRepository.getUsers()
 }
 
-
 const userService = { createUser, getUsers}
 
 export default userService;

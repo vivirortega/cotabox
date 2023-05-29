@@ -3,7 +3,7 @@ import { userSchema } from '../schemas/userSchema.js'
 export async function schemaValidator(req, res, next) {
   const validation = userSchema.validate(req.body)
   if (validation.error) {
-    res.sendStatus(422)
+    res.sendStatus(400)
     return
   }
   next()
