@@ -19,7 +19,7 @@ const Form = styled.form`
     border-radius: 2px;
   }
 
-  btn {
+  .btn {
     width: 10em;
     height: 3.1em;
     border: 2px solid #ffffff;
@@ -31,7 +31,7 @@ const Form = styled.form`
     font-size: 1em;
   }
 
-  btn:hover {
+  .btn:hover {
     background-color: #ffffff;
     color: #00b8e2;
   }
@@ -46,15 +46,25 @@ const Data = styled.main`
   h1 {
     color: #333333;
     margin-top: 5em;
-    font-size: 3em;
+    font-size: 2.50em;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: bolder;
   }
 
   h2 {
-    font-size: 1.3em;
+    font-size: 1em;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: 400;
   }
+
+p {
+  font-size: 0.7em;
+  color: black;
+}
+
+.table {
+  display: flex;
+  gap: 0.40em
+}
 `
 export { Form, Data }
