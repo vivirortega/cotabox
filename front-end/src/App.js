@@ -29,7 +29,7 @@ function App() {
     promise.catch((error) => {
       console.log(error)
     })
-  }, [])
+  }, [username])
 
   const data = [
     ['Task', 'Hours per Day'],
