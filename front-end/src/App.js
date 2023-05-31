@@ -11,35 +11,37 @@ export const options = {
 }
 
 function App() {
-
-  
   const notify = () => toast.success('Cadastrado com Sucesso!')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [participation, setParticipation] = useState(0)
   const [username, setUsername] = useState([])
-  const [percentage, setPercentage] = useState("");
+  const [data, setData] = useState([])
 
-  useEffect(() => {
+  function getInfos() {
     const promise = axios.get('http://localhost:5000/')
     promise.then((response) => {
-      console.log(response.data[0])
-      setUsername(response.data)
+      var result = []
+      var header = [`'Nome'`, 'Participação']
+      result.push(header)
+      response.data.map((obj) => {
+        result.push([
+          `${obj.firstName} ${obj.lastName}`,
+          parseInt(obj.participation),
+        ])
+      })
+      setData(result)
+
+      console.log(result)
     })
     promise.catch((error) => {
       console.log(error)
     })
-  }, [username])
+  }
 
-  const data = [
-    ['Task', 'Hours per Day'],
-    ['Work', 11],
-    ['Eat', 2],
-    ['Commute', 2],
-    ['Watch TV', 2],
-    ['Sleep', 7],
-  ]
-
+  useEffect(() => {
+    getInfos()
+  }, [])
 
   function postUser(event) {
     event.preventDefault()
@@ -52,6 +54,7 @@ function App() {
       setLastName('')
       setParticipation('')
       notify()
+      getInfos()
     })
     promise.catch((error) => {
       console.log(error)
@@ -102,7 +105,7 @@ function App() {
         />
         {username.map((user) => {
           return (
-            <div className='table'>
+            <div className="table">
               <p>{user.firstName}</p>
               <p>{user.lastName}</p>
               <p>{user.participation}</p>
